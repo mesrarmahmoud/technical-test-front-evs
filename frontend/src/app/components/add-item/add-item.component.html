@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter un candidat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Annuler</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nom du candidat</ion-label>
+    <ion-input [(ngModel)]="newCondidat.name" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Âge du candidat</ion-label>
+    <ion-input type="number" [(ngModel)]="newCondidat.age" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Position</ion-label>
+    <ion-input [(ngModel)]="newCondidat.position"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Compétences</ion-label>
+    <ion-select [(ngModel)]="selectedSkills" multiple="true">
+      <ion-select-option *ngFor="let skill of availableSkills" [value]="skill">{{ skill }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Compétences sélectionnées:</ion-label>
+    <ion-chip *ngFor="let skill of selectedSkills">
+      <ion-label>{{ skill }}</ion-label>
+      <ion-button fill="clear" (click)="removeSkill(skill)">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-chip>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <ion-button expand="full" (click)="save()" [disabled]="!isFormValid()">Enregistrer</ion-button>
+</ion-footer>

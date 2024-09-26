@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Condidats</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-toolbar color="primary">
+        <ion-title >List des condidats</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="addCondidat()" >
+                <ion-icon slot="start" name="add"></ion-icon>
+                Ajouter un condidat
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <!-- Display the list of condidats -->
+    <app-items-list [condidats]="condidats"></app-items-list> 
+</ion-content>

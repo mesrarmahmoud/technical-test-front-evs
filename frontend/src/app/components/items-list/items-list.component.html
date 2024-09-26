@@ -1,0 +1,15 @@
+<ion-list>
+    <ion-item *ngFor="let condidat of condidats">
+        <ion-label>
+            <h2>{{ condidat.name }}</h2>
+            <p>Age: {{ condidat.age }}</p>
+            <p>Position: {{ condidat.position }}</p>
+            <p>Compétences: 
+                <ng-container *ngFor="let skill of condidat.skills; let last = last">
+                    <ion-chip color="secondary">{{ skill }}</ion-chip>
+                    <span *ngIf="!last"> </span>
+                </ng-container>
+            </p>
+        </ion-label>
+    </ion-item>
+</ion-list>
